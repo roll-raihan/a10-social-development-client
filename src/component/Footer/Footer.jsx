@@ -1,6 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { GiPlantRoots } from 'react-icons/gi';
-import { Link } from 'react-router';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
