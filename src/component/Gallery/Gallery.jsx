@@ -10,7 +10,7 @@ const Gallery = ({ galleryPromise }) => {
         <section className="py-12 bg-gradient-to-b from-[#F1F8E9] to-white  transition-colors duration-300">
             <div className="container mx-auto px-4">
                 <h2 className="text-4xl font-bold text-center mb-10 text-primary dark:text-secondary">
-                    🌱 GreenRoot Gallery: Moments of Growth
+                     GreenRoot Gallery: Moments of Growth
                 </h2>
 
                 <div className="gallery-grid grid grid-cols-2  md:grid-cols-3  lg:grid-cols-4 gap-4 md:gap-6">
