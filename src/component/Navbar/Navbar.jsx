@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import '../Navbar/navbar.css'
+import ToggleTheme from '../toggleTheme/ToggleTheme';
 
 const Navbar = () => {
 
@@ -32,7 +33,8 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end flex gap-3">
+                <ToggleTheme></ToggleTheme>
                 <a className="btn btn-primary">Login</a>
             </div>
         </div>
