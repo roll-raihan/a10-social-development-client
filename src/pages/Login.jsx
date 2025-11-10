@@ -2,16 +2,24 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Login = () => {
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log(email, password)
+    }
+
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl p-5">
                 <h1 className="text-5xl text-center font-bold">Login now!</h1>
-                <form className="card-body">
+                <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">
                         <label className="label">Email</label>
-                        <input type="email" className="input" placeholder="Email" />
+                        <input type="email" className="input" placeholder="Email" name='email' />
                         <label className="label">Password</label>
-                        <input type="password" className="input" placeholder="Password" />
+                        <input type="password" className="input" placeholder="Password" name='password' />
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button className="btn btn-primary mt-4">Login</button>
                         <button className="btn btn-secondary text-black border-[#e5e5e5]">

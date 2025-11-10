@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import '../Navbar/navbar.css'
 import ToggleTheme from '../toggleTheme/ToggleTheme';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Navbar = () => {
 
-    const links=<>
+    const { user } = use(AuthContext);
+
+    const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
@@ -35,7 +38,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex gap-3">
                 <ToggleTheme></ToggleTheme>
-                <Link to="/login" className="btn btn-primary">Login</Link>
+                {
+                    user ? <Link className="btn btn-primary">Logout</Link> : <Link to="/login" className="btn btn-primary">Login</Link>
+                }
             </div>
         </div>
     );
