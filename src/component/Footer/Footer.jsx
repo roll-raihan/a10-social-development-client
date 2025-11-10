@@ -8,10 +8,8 @@ const Footer = () => {
         <footer className="bg-gradient-to-r from-[#1B5E20] to-[#2D5016] text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-                {/* Main Content */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-6">
 
-                    {/* Brand with Motto */}
                     <div className="text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                             <GiPlantRoots className="text-3xl text-[#7CB342]" />
@@ -22,7 +20,6 @@ const Footer = () => {
                         </p>
                     </div>
 
-                    {/* Social Links */}
                     <div className="flex gap-4">
                         <a
                             href="https://facebook.com"
@@ -62,7 +59,6 @@ const Footer = () => {
                         </a>
                     </div>
 
-                    {/* Links */}
                     <div className="flex gap-6 text-sm">
                         <p className="text-gray-200 hover:text-[#7CB342] transition-colors">
                             Privacy Policy
@@ -76,7 +72,6 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Copyright */}
                 <div className="border-t border-white/20 pt-6 text-center">
                     <p className="text-sm text-gray-300">
                         © {currentYear} GreenRoots. All rights reserved. Built with 💚 for a greener future.
