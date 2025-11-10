@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import '../Navbar/navbar.css'
 import ToggleTheme from '../toggleTheme/ToggleTheme';
 
@@ -35,7 +35,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end flex gap-3">
                 <ToggleTheme></ToggleTheme>
-                <a className="btn btn-primary">Login</a>
+                <Link to="/login" className="btn btn-primary">Login</Link>
             </div>
         </div>
     );
