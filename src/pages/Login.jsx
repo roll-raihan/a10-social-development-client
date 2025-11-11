@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    const { signInUser, setUser } = use(AuthContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
+        // console.log(email, password)
+        signInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+                Swal.fire({
+                    title: "Well Done!",
+                    text: "You have successfully logged in",
+                    icon: "success"
+                });
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.message,
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+            })
     }
 
     return (
@@ -17,9 +38,9 @@ const Login = () => {
                 <form onSubmit={handleLogin} className="card-body">
                     <fieldset className="fieldset">
                         <label className="label">Email</label>
-                        <input type="email" className="input" placeholder="Email" name='email' required/>
+                        <input type="email" className="input" placeholder="Email" name='email' required />
                         <label className="label">Password</label>
-                        <input type="password" className="input" placeholder="Password" name='password' required/>
+                        <input type="password" className="input" placeholder="Password" name='password' required />
                         <div><a className="link link-hover">Forgot password?</a></div>
                         <button type='submit' className="btn btn-primary mt-4">Login</button>
                         <button className="btn btn-secondary text-black border-[#e5e5e5]">

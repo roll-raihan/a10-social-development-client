@@ -1,12 +1,14 @@
-import React, { use } from 'react';
+import React, { use} from 'react';
 import { Link, NavLink } from 'react-router';
 import '../Navbar/navbar.css'
 import ToggleTheme from '../toggleTheme/ToggleTheme';
 import { AuthContext } from '../../provider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Navbar = () => {
 
     const { user } = use(AuthContext);
+    // console.log(user)
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -39,8 +41,18 @@ const Navbar = () => {
             <div className="navbar-end flex gap-3">
                 <ToggleTheme></ToggleTheme>
                 {
-                    user ? <Link className="btn btn-primary">Logout</Link> : <Link to="/login" className="btn btn-primary">Login</Link>
+                    user ? (
+                        <div className="flex gap-2 items-center justify-center">
+                            <div className="tooltip tooltip-bottom" data-tip={user?.displayName || user?.email || "User"}>
+                                <FaUserCircle className="h-[30px] w-[30px] cursor-pointer text-primary" />
+                            </div>
+                            <Link className="btn btn-primary">Logout</Link>
+                        </div>
+                    ) : (
+                        <Link to="/login" className="btn btn-primary">Login</Link>
+                    )
                 }
+
             </div>
         </div>
     );
