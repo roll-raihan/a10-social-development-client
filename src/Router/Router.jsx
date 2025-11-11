@@ -27,18 +27,20 @@ const router = createBrowserRouter([
             },
             {
                 path: "/upcomingEvent",
-                Component: UpcomingEvent
+                Component: UpcomingEvent,
+                loader: () => fetch('http://localhost:3000/trees'),
+                hydrateFallbackElement: <span className="loading loading-spinner text-success"></span>
             },
             {
                 path: "/createEvent",
                 Component: CreateEvent
             },
             {
-                path:"/manageEvent",
+                path: "/manageEvent",
                 element: <ManageEvents></ManageEvents>
             },
             {
-                path:"/joinedEvent",
+                path: "/joinedEvent",
                 element: <JoinedEvents></JoinedEvents>
             },
         ]
