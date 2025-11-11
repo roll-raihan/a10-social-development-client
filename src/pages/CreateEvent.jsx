@@ -17,13 +17,11 @@ const CreateEvent = () => {
         event_date: null,
     });
 
-    // handle input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEventData({ ...eventData, [name]: value });
     };
 
-    // handle date picker
     const handleDateChange = (date) => {
         setEventData({ ...eventData, event_date: date });
     };

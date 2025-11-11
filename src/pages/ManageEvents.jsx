@@ -49,7 +49,7 @@ const ManageEvents = () => {
                                     <td>{event.event_date}</td>
                                     <td>{event.location}</td>
                                     <td>
-                                        <Link to={`/update-event/${event._id}`} className="btn btn-sm btn-primary mr-2">Edit</Link>
+                                        <Link to={`/manageEvent/${event._id}`} className="btn btn-sm btn-primary mr-2">Edit</Link>
                                     </td>
                                 </tr>
                             ))}

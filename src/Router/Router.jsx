@@ -10,6 +10,7 @@ import JoinedEvents from "../pages/JoinedEvents";
 import UpcomingEventDetails from "../pages/UpcomingEventDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../pages/Loading";
+import UpdateEvent from "../pages/UpdateEvent";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,12 @@ const router = createBrowserRouter([
                 path: "/manageEvent",
                 element: <PrivateRoute>
                     <ManageEvents></ManageEvents>
+                </PrivateRoute>
+            },
+            {
+                path: "/manageEvent/:id",
+                element: <PrivateRoute>
+                    <UpdateEvent></UpdateEvent>
                 </PrivateRoute>
             },
             {
