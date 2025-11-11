@@ -61,7 +61,7 @@ const CreateEvent = () => {
                     timer: 2000,
                     showConfirmButton: false,
                 });
-                navigate("/upcomingEvents");
+                navigate("/upcomingEvent");
             } else {
                 throw new Error("Failed to create event");
             }
@@ -79,7 +79,6 @@ const CreateEvent = () => {
             <h2 className="text-2xl font-semibold mb-5 text-center">Create New Event</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Event Title */}
                 <div>
                     <label className="block font-medium">Event Title</label>
                     <input
@@ -92,7 +91,6 @@ const CreateEvent = () => {
                     />
                 </div>
 
-                {/* Description */}
                 <div>
                     <label className="block font-medium">Description</label>
                     <textarea
@@ -104,7 +102,6 @@ const CreateEvent = () => {
                     />
                 </div>
 
-                {/* Event Type */}
                 <div>
                     <label className="block font-medium">Event Type</label>
                     <select
@@ -121,7 +118,6 @@ const CreateEvent = () => {
                     </select>
                 </div>
 
-                {/* Thumbnail URL */}
                 <div>
                     <label className="block font-medium">Thumbnail Image URL</label>
                     <input
@@ -134,7 +130,6 @@ const CreateEvent = () => {
                     />
                 </div>
 
-                {/* Location */}
                 <div>
                     <label className="block font-medium">Location</label>
                     <input
@@ -147,7 +142,6 @@ const CreateEvent = () => {
                     />
                 </div>
 
-                {/* Event Date */}
                 <div>
                     <label className="block font-medium">Event Date</label>
                     <DatePicker
@@ -160,7 +154,6 @@ const CreateEvent = () => {
                     />
                 </div>
 
-                {/* Submit Button */}
                 <button type="submit" className="btn btn-primary w-full">
                     Create Event
                 </button>
