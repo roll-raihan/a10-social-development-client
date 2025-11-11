@@ -1,4 +1,5 @@
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { GiPlantRoots } from 'react-icons/gi';
 
 const Footer = () => {
@@ -37,7 +38,7 @@ const Footer = () => {
                             className="bg-white/10 hover:bg-[#7CB342] p-3 rounded-full transition-all duration-300 hover:scale-110"
                             aria-label="Twitter"
                         >
-                            <FaTwitter className="text-lg" />
+                            <FaXTwitter className="text-lg" />
                         </a>
                         <a
                             href="https://instagram.com"

@@ -1,13 +1,14 @@
-import React, { use} from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import '../Navbar/navbar.css'
 import ToggleTheme from '../toggleTheme/ToggleTheme';
 import { AuthContext } from '../../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
-    const { user } = use(AuthContext);
+    const { user, logOut } = use(AuthContext);
     // console.log(user)
 
     const links = <>
@@ -17,6 +18,24 @@ const Navbar = () => {
         <li><NavLink to='/createEvent'>Create Event</NavLink></li>
         <li><NavLink to="/upcomingEvent">Upcoming Event</NavLink></li>
     </>
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Well Done!",
+                    text: "Successfully logged out",
+                    icon: "success"
+                });
+            }).catch((error) => {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: error.message,
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
+            });
+    }
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -46,7 +65,7 @@ const Navbar = () => {
                             <div className="tooltip tooltip-bottom" data-tip={user?.displayName || user?.email || "User"}>
                                 <FaUserCircle className="h-[30px] w-[30px] cursor-pointer text-primary" />
                             </div>
-                            <Link className="btn btn-primary">Logout</Link>
+                            <Link onClick={handleLogOut} className="btn btn-primary">Logout</Link>
                         </div>
                     ) : (
                         <Link to="/login" className="btn btn-primary">Login</Link>

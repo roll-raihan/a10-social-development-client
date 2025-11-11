@@ -8,6 +8,3 @@
   --color-secondary: #7CB342;
   --color-accent: #FFA726;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
