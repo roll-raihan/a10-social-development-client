@@ -11,7 +11,6 @@ const UpdateEvent = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
 
-    // 1️⃣ Fetch existing event data
     useEffect(() => {
         fetch(`http://localhost:3000/events/${id}`)
             .then(res => res.json())
@@ -21,18 +20,15 @@ const UpdateEvent = () => {
             });
     }, [id]);
 
-    // 2️⃣ Handle field updates
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEventData({ ...eventData, [name]: value });
     };
 
-    // 3️⃣ Handle date change
     const handleDateChange = (date) => {
         setEventData({ ...eventData, event_date: date });
     };
 
-    // 4️⃣ Submit updates to server
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -67,7 +63,6 @@ const UpdateEvent = () => {
         <div className="max-w-3xl mx-auto p-6 bg-base-200 rounded-2xl shadow-lg my-10">
             <h2 className="text-3xl font-bold mb-6 text-center">Update Event</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Event Title */}
                 <div>
                     <label className="block font-semibold mb-2">Event Title</label>
                     <input
@@ -80,7 +75,6 @@ const UpdateEvent = () => {
                     />
                 </div>
 
-                {/* Description */}
                 <div>
                     <label className="block font-semibold mb-2">Description</label>
                     <textarea
@@ -93,7 +87,6 @@ const UpdateEvent = () => {
                     ></textarea>
                 </div>
 
-                {/* Event Type */}
                 <div>
                     <label className="block font-semibold mb-2">Event Type</label>
                     <select
@@ -110,7 +103,6 @@ const UpdateEvent = () => {
                     </select>
                 </div>
 
-                {/* Thumbnail */}
                 <div>
                     <label className="block font-semibold mb-2">Thumbnail Image URL</label>
                     <input
@@ -122,7 +114,6 @@ const UpdateEvent = () => {
                     />
                 </div>
 
-                {/* Location */}
                 <div>
                     <label className="block font-semibold mb-2">Location</label>
                     <input
@@ -135,14 +126,13 @@ const UpdateEvent = () => {
                     />
                 </div>
 
-                {/* Event Date */}
                 <div>
                     <label className="block font-semibold mb-2">Event Date</label>
                     <DatePicker
                         selected={new Date(eventData.event_date)}
                         onChange={handleDateChange}
                         className="input input-bordered w-full"
-                        minDate={new Date()} // prevent past dates
+                        minDate={new Date()}
                         dateFormat="yyyy-MM-dd"
                         required
                     />
