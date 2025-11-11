@@ -36,9 +36,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/upcomingEvent/:id",
-                element: <UpcomingEventDetails></UpcomingEventDetails>,
-                // loader: () => fetch(`http://localhost:3000/trees/${id}`),
-                // hydrateFallbackElement: <Loading></Loading>
+                element: <UpcomingEventDetails></UpcomingEventDetails>
             },
             {
                 path: "/createEvent",

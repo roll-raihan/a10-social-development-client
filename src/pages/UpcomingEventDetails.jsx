@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ const UpcomingEventDetails = () => {
 
     const { id } = useParams();
     const [event, setEvent] = useState(null);
-    const { user } = useContext(AuthContext);
+    const { user } = use(AuthContext);
 
     useEffect(() => {
         fetch(`http://localhost:3000/trees/${id}`)
@@ -18,7 +18,12 @@ const UpcomingEventDetails = () => {
 
     const handleJoinEvent = () => {
         if (!user) {
-            alert("You must log in to join this event!");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You must login!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
             return;
         }
 
@@ -31,7 +36,7 @@ const UpcomingEventDetails = () => {
             eventDate: event.event_date,
         };
 
-        fetch("http://localhost:5173/joinedEvent", {
+        fetch("http://localhost:3000/join-event", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(joinData),
