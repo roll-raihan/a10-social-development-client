@@ -1,4 +1,5 @@
 import { FaGlobeAmericas, FaBolt, FaChartLine, FaUsers } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const Features = () => {
 
@@ -62,9 +63,9 @@ const Features = () => {
                     <p className="text-gray-700 mb-4">
                         Ready to make a difference?
                     </p>
-                    <button className="bg-secondary hover:bg-[#689F38] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+                    <Link to="/joinedEvent" className="bg-secondary hover:bg-[#689F38] text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
                         Get Started Today
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

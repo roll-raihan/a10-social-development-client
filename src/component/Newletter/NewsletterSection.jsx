@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const NewsletterSection = () => {
     return (
@@ -20,12 +21,12 @@ const NewsletterSection = () => {
                             aria-label="Email address for newsletter"
                             disabled
                         />
-                        <button
+                        <Link to="/joinedEvent"
                             className="main-cta-button w-full sm:w-auto px-6 py-3 font-semibold rounded-lg text-white bg-primary hover:bg-green-700 transition duration-300 shadow-md"
                             disabled
                         >
                             Join the Roots
-                        </button>
+                        </Link>
                     </div>
 
                     <p className="text-sm mt-4 text-gray-500 dark:text-gray-400">

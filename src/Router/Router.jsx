@@ -7,6 +7,9 @@ import UpcomingEvent from "../pages/UpcomingEvent";
 import CreateEvent from "../pages/CreateEvent";
 import ManageEvents from "../pages/ManageEvents";
 import JoinedEvents from "../pages/JoinedEvents";
+import UpcomingEventDetails from "../pages/UpcomingEventDetails";
+import PrivateRoute from "../provider/PrivateRoute";
+import Loading from "../pages/Loading";
 
 const router = createBrowserRouter([
     {
@@ -29,19 +32,31 @@ const router = createBrowserRouter([
                 path: "/upcomingEvent",
                 Component: UpcomingEvent,
                 loader: () => fetch('http://localhost:3000/trees'),
-                hydrateFallbackElement: <span className="loading loading-spinner text-success"></span>
+                hydrateFallbackElement: <Loading></Loading>
+            },
+            {
+                path: "/upcomingEvent/:id",
+                element: <UpcomingEventDetails></UpcomingEventDetails>,
+                // loader: () => fetch(`http://localhost:3000/trees/${id}`),
+                // hydrateFallbackElement: <Loading></Loading>
             },
             {
                 path: "/createEvent",
-                Component: CreateEvent
+                element: <PrivateRoute>
+                    <CreateEvent></CreateEvent>
+                </PrivateRoute>
             },
             {
                 path: "/manageEvent",
-                element: <ManageEvents></ManageEvents>
+                element: <PrivateRoute>
+                    <ManageEvents></ManageEvents>
+                </PrivateRoute>
             },
             {
                 path: "/joinedEvent",
-                element: <JoinedEvents></JoinedEvents>
+                element: <PrivateRoute>
+                    <JoinedEvents></JoinedEvents>
+                </PrivateRoute>
             },
         ]
     },
