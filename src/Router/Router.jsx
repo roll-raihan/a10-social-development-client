@@ -11,6 +11,7 @@ import UpcomingEventDetails from "../pages/UpcomingEventDetails";
 import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../pages/Loading";
 import UpdateEvent from "../pages/UpdateEvent";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
                     <JoinedEvents></JoinedEvents>
                 </PrivateRoute>
             },
+            {
+                path: "/*",
+                Component: ErrorPage
+            }
         ]
     },
 ]);
