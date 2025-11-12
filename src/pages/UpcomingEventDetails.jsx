@@ -11,7 +11,7 @@ const UpcomingEventDetails = () => {
     const { user } = use(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/trees/${id}`)
+        fetch(`https://social-development-server-pi.vercel.app/trees/${id}`)
             .then(res => res.json())
             .then(data => setEvent(data));
     }, [id]);
@@ -36,7 +36,7 @@ const UpcomingEventDetails = () => {
             eventDate: event.event_date,
         };
 
-        fetch("http://localhost:3000/join-event", {
+        fetch("https://social-development-server-pi.vercel.app/join-event", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(joinData),

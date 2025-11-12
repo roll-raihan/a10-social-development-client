@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: "/upcomingEvent",
                 Component: UpcomingEvent,
-                loader: () => fetch('http://localhost:3000/trees'),
+                loader: () => fetch('https://social-development-server-pi.vercel.app/trees'),
                 hydrateFallbackElement: <Loading></Loading>
             },
             {

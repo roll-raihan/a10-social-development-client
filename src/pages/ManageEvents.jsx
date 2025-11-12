@@ -10,7 +10,7 @@ const ManageEvents = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/events?email=${user.email}`)
+            fetch(`https://social-development-server-pi.vercel.app/events?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyEvents(data);

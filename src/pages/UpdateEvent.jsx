@@ -12,7 +12,7 @@ const UpdateEvent = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/events/${id}`)
+        fetch(`https://social-development-server-pi.vercel.app/events/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEventData(data);
@@ -93,7 +93,7 @@ const UpdateEvent = () => {
             event_date: eventData.event_date.toISOString().split('T')[0],
         };
 
-        fetch(`http://localhost:3000/events/${id}`, {
+        fetch(`https://social-development-server-pi.vercel.app/events/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

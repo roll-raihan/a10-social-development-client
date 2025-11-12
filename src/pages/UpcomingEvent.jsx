@@ -12,7 +12,7 @@ const UpcomingEvents = () => {
     const fetchEvents = async (type = 'All', search = '') => {
         try {
             setLoading(true);
-            let url = `http://localhost:3000/trees?`;
+            let url = `https://social-development-server-pi.vercel.app/trees?`;
 
             if (type && type !== 'All') url += `type=${type}&`;
             if (search) url += `search=${search}`;
@@ -20,7 +20,7 @@ const UpcomingEvents = () => {
             const response = await axios.get(url);
             setEvents(response.data);
         } catch (err) {
-            console.error("Error fetching events:", err);
+            // console.error("Error fetching events:", err);
             setError('Failed to load upcoming events. Please try again.');
         } finally {
             setLoading(false);
