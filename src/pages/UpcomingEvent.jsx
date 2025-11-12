@@ -6,36 +6,62 @@ const UpcomingEvents = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [selectedType, setSelectedType] = useState('All');
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const fetchEvents = async (type = 'All', search = '') => {
+        try {
+            setLoading(true);
+            let url = `http://localhost:3000/trees?`;
+
+            if (type && type !== 'All') url += `type=${type}&`;
+            if (search) url += `search=${search}`;
+
+            const response = await axios.get(url);
+            setEvents(response.data);
+        } catch (err) {
+            console.error("Error fetching events:", err);
+            setError('Failed to load upcoming events. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const response = await axios.get('http://localhost:3000/trees');
-                setEvents(response.data);
-            } catch (err) {
-                console.error("Error fetching events:", err);
-                setError('Failed to load upcoming events. Please try again.');
-            } finally {
-                setLoading(false);
-            }
-        };
+        fetchEvents(selectedType, searchQuery);
+    }, [selectedType, searchQuery]);
 
-        fetchEvents();
-    }, []);
-
-    if (loading) {
-        return <div className="loading-state">Loading Upcoming Events...</div>;
-    }
-
-    if (error) {
-        return <div className="error-state">🚨 {error}</div>;
-    }
+    if (loading) return <div className="loading-state">Loading Upcoming Events...</div>;
+    if (error) return <div className="error-state">🚨 {error}</div>;
 
     return (
         <div className="upcoming-events-page p-5 bg-gradient-to-b from-[#FFB69B] via-[#F7A1B1] to-[#D8C6E0]">
-            <h2 className='font-bold text-center text-4xl p-10 text-black'>Community Upcoming Events</h2>
+            <h2 className="font-bold text-center text-4xl p-10 text-black">Community Upcoming Events</h2>
+
+            <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+                <input
+                    type="text"
+                    placeholder="Search by event name..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="border border-gray-400 rounded-lg px-4 py-2 w-64"
+                />
+
+                <select
+                    value={selectedType}
+                    onChange={(e) => setSelectedType(e.target.value)}
+                    className="border border-gray-400 rounded-lg px-4 py-2 w-48"
+                >
+                    <option value="All">All Types</option>
+                    <option value="Cleanup">Cleanup</option>
+                    <option value="Plantation">Plantation</option>
+                    <option value="Donation">Donation</option>
+                    <option value="Awareness">Awareness</option>
+                </select>
+            </div>
+
             {events.length === 0 ? (
-                <p className="empty-state">No upcoming events are scheduled right now. Check back later!</p>
+                <p className="empty-state text-center text-lg font-medium">No upcoming events found.</p>
             ) : (
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {events.map(event => (

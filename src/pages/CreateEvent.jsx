@@ -26,52 +26,6 @@ const CreateEvent = () => {
         setEventData({ ...eventData, event_date: date });
     };
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     if (!eventData.event_date || eventData.event_date < new Date()) {
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: "Invalid Date",
-    //             text: "Please select a future date!",
-    //         });
-    //         return;
-    //     }
-
-    //     const newEvent = {
-    //         ...eventData,
-    //         creator_email: user?.email,
-    //         event_date: eventData.event_date.toISOString(),
-    //     };
-
-    //     try {
-    //         const res = await fetch("http://localhost:3000/events", {
-    //             method: "POST",
-    //             headers: { "Content-Type": "application/json" },
-    //             body: JSON.stringify(newEvent),
-    //         });
-
-    //         if (res.ok) {
-    //             Swal.fire({
-    //                 icon: "success",
-    //                 title: "Event Created!",
-    //                 text: "Your event has been added successfully.",
-    //                 timer: 2000,
-    //                 showConfirmButton: false,
-    //             });
-    //             navigate("/upcomingEvent");
-    //         } else {
-    //             throw new Error("Failed to create event");
-    //         }
-    //     } catch (error) {
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: "Error",
-    //             text: error.message,
-    //         });
-    //     }
-    // };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
