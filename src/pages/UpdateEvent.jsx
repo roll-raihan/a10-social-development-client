@@ -29,8 +29,64 @@ const UpdateEvent = () => {
         setEventData({ ...eventData, event_date: date });
     };
 
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+
+    //     const updatedEvent = {
+    //         ...eventData,
+    //         event_date: eventData.event_date.toISOString().split('T')[0],
+    //     };
+
+    //     fetch(`http://localhost:3000/events/${id}`, {
+    //         method: 'PATCH',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(updatedEvent)
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.modifiedCount > 0) {
+    //                 Swal.fire({
+    //                     title: 'Updated!',
+    //                     text: 'Your event details were successfully updated.',
+    //                     icon: 'success',
+    //                 });
+    //                 navigate('/manageEvent');
+    //             }
+    //         });
+    // };
+
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const { event_title, description, thumbnail, location, event_date } = eventData;
+
+        if (!event_title || event_title.trim().length < 3) {
+            Swal.fire("Invalid Title", "Title must be at least 3 characters long.", "error");
+            return;
+        }
+
+        if (!description || description.trim().length < 10) {
+            Swal.fire("Invalid Description", "Description must be at least 10 characters long.", "error");
+            return;
+        }
+
+        const imagePattern = /\.(jpeg|jpg|gif|png|webp)$/i;
+        if (!/^https?:\/\/.+/.test(thumbnail) || !imagePattern.test(thumbnail)) {
+            Swal.fire("Invalid Image URL", "Please provide a valid image link (http + .jpg/.png etc.)", "error");
+            return;
+        }
+
+        if (!location || location.trim().length < 3) {
+            Swal.fire("Invalid Location", "Please enter a valid location.", "error");
+            return;
+        }
+
+        if (!event_date || new Date(event_date) < new Date()) {
+            Swal.fire("Invalid Date", "Please select a future date!", "error");
+            return;
+        }
 
         const updatedEvent = {
             ...eventData,
@@ -53,9 +109,16 @@ const UpdateEvent = () => {
                         icon: 'success',
                     });
                     navigate('/manageEvent');
+                } else {
+                    Swal.fire("No Changes", "No fields were updated.", "info");
                 }
+            })
+            .catch(err => {
+                Swal.fire("Error", "Something went wrong while updating the event.", "error");
+                console.error(err);
             });
     };
+
 
     if (loading) return <Loading />;
 

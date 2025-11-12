@@ -22,14 +22,14 @@ const JoinedEvents = () => {
     if (loading) return <Loading />;
 
     return (
-        <div className="px-4 py-8 bg-amber-300">
-            <h2 className="text-3xl font-bold mb-6">My Joined Events</h2>
+        <div className="px-4 py-8 bg-secondary opacity-[80%]">
+            <h2 className="text-3xl font-bold mb-6 text-black">My Joined Events</h2>
             {myEvents.length === 0 ? (
-                <p>You haven’t joined any events yet.</p>
+                <p className='text-secondary'>You haven't joined any events yet.</p>
             ) : (
                 <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        <thead>
+                    <table className="table w-full text-black">
+                        <thead className='text-black'>
                             <tr>
                                 <th>Thumbnail</th>
                                 <th>Title</th>

@@ -26,22 +26,87 @@ const CreateEvent = () => {
         setEventData({ ...eventData, event_date: date });
     };
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+
+    //     if (!eventData.event_date || eventData.event_date < new Date()) {
+    //         Swal.fire({
+    //             icon: "error",
+    //             title: "Invalid Date",
+    //             text: "Please select a future date!",
+    //         });
+    //         return;
+    //     }
+
+    //     const newEvent = {
+    //         ...eventData,
+    //         creator_email: user?.email,
+    //         event_date: eventData.event_date.toISOString(),
+    //     };
+
+    //     try {
+    //         const res = await fetch("http://localhost:3000/events", {
+    //             method: "POST",
+    //             headers: { "Content-Type": "application/json" },
+    //             body: JSON.stringify(newEvent),
+    //         });
+
+    //         if (res.ok) {
+    //             Swal.fire({
+    //                 icon: "success",
+    //                 title: "Event Created!",
+    //                 text: "Your event has been added successfully.",
+    //                 timer: 2000,
+    //                 showConfirmButton: false,
+    //             });
+    //             navigate("/upcomingEvent");
+    //         } else {
+    //             throw new Error("Failed to create event");
+    //         }
+    //     } catch (error) {
+    //         Swal.fire({
+    //             icon: "error",
+    //             title: "Error",
+    //             text: error.message,
+    //         });
+    //     }
+    // };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!eventData.event_date || eventData.event_date < new Date()) {
-            Swal.fire({
-                icon: "error",
-                title: "Invalid Date",
-                text: "Please select a future date!",
-            });
+        const { event_title, description, thumbnail, location, event_date } = eventData;
+
+        if (event_title.trim().length < 3) {
+            Swal.fire("Invalid Title", "Title must be at least 3 characters long.", "error");
+            return;
+        }
+
+        if (description.trim().length < 10) {
+            Swal.fire("Invalid Description", "Description must be at least 10 characters long.", "error");
+            return;
+        }
+
+        const imagePattern = /\.(jpeg|jpg|gif|png|webp)$/i;
+        if (!/^https?:\/\/.+/.test(thumbnail) || !imagePattern.test(thumbnail)) {
+            Swal.fire("Invalid Image URL", "Please provide a valid image link (http + .jpg/.png etc.)", "error");
+            return;
+        }
+
+        if (location.trim().length < 3) {
+            Swal.fire("Invalid Location", "Please enter a valid location.", "error");
+            return;
+        }
+
+        if (!event_date || event_date < new Date()) {
+            Swal.fire("Invalid Date", "Please select a future date!", "error");
             return;
         }
 
         const newEvent = {
             ...eventData,
             creator_email: user?.email,
-            event_date: eventData.event_date.toISOString(),
+            event_date: event_date.toISOString(),
         };
 
         try {
@@ -71,6 +136,7 @@ const CreateEvent = () => {
             });
         }
     };
+
 
     return (
         <div className="max-w-lg mx-auto p-6 bg-base-200 rounded-xl shadow-md mt-10">
