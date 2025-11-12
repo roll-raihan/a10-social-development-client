@@ -8,7 +8,7 @@ const JoinedEvents = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/join-event?email=${user.userEmail}`)
+            fetch(`http://localhost:3000/join-event?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)

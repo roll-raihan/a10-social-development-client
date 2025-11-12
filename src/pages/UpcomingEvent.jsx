@@ -35,7 +35,7 @@ const UpcomingEvents = () => {
     if (error) return <div className="error-state">🚨 {error}</div>;
 
     return (
-        <div className="upcoming-events-page p-5 bg-gradient-to-b from-[#FFB69B] via-[#F7A1B1] to-[#D8C6E0]">
+        <div className="upcoming-events-page p-5 bg-gradient-to-b from-secondary via-[#F7A1B1] to-[#D8C6E0]">
             <h2 className="font-bold text-center text-4xl p-10 text-black">Community Upcoming Events</h2>
 
             <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
@@ -44,13 +44,13 @@ const UpcomingEvents = () => {
                     placeholder="Search by event name..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="border border-gray-400 rounded-lg px-4 py-2 w-64"
+                    className="rounded-lg px-4 py-2 w-64 text-black bg-white"
                 />
 
                 <select
                     value={selectedType}
                     onChange={(e) => setSelectedType(e.target.value)}
-                    className="border border-gray-400 rounded-lg px-4 py-2 w-48"
+                    className="rounded-lg px-4 py-2 w-48 text-black bg-white"
                 >
                     <option value="All">All Types</option>
                     <option value="Cleanup">Cleanup</option>
