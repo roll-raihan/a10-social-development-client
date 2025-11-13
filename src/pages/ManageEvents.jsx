@@ -10,6 +10,7 @@ const ManageEvents = () => {
 
     useEffect(() => {
         if (user?.email) {
+            // console.log(user.email)
             fetch(`https://social-development-server-pi.vercel.app/trees?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
@@ -47,7 +48,12 @@ const ManageEvents = () => {
                                     <td>{event.event_title}</td>
                                     <td>{event.event_type}</td>
                                     <td>{event.event_date}</td>
-                                    <td>{event.location}</td>
+                                    <td>
+                                        {typeof event.location === 'object'
+                                            ? `${event.location.name || ''}, ${event.location.city || ''}, ${event.location.address || ''}`
+                                            : event.location}
+                                    </td>
+
                                     <td>
                                         <Link to={`/manageEvent/${event._id}`} className="btn btn-sm btn-primary mr-2">Edit</Link>
                                     </td>
