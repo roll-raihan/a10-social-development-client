@@ -10,7 +10,7 @@ const EventCard = ({ event }) => {
     return (
         <div className="event-card border rounded-2xl p-5">
             <div className="card-image">
-                <img src={event.image} alt={event.event_title} />
+                <img className='w-full h-[150px]' src={event.image} alt={event.event_title} />
             </div>
             <div className="card-content">
                 <h3 className='font-bold text-xl text-black'>{event.event_title}</h3>
