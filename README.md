@@ -57,7 +57,7 @@ Follow the steps below to run GreenRoots on your local machine:
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/your-project.git
+git clone https://github.com/roll-raihan/a10-social-development-client.git
 cd your-project
 npm install
 cp .env.example .env
