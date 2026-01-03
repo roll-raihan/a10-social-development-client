@@ -5,6 +5,7 @@ import Features from '../component/features/Features';
 import Gallery from '../component/Gallery/Gallery';
 import NewsletterSection from '../component/Newletter/NewsletterSection';
 import Services from '../component/services/Services';
+import Testimonial from '../component/testimonial/Testimonial';
 
 const galleryPromise = fetch('./galleryImage.json').then(res => res.json())
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
             <Categories></Categories>
             <Gallery galleryPromise={galleryPromise}></Gallery>
             <Blog></Blog>
+            <Testimonial></Testimonial>
             <NewsletterSection></NewsletterSection>
         </div>
     );
