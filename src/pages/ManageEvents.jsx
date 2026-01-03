@@ -18,7 +18,7 @@ const ManageEvents = () => {
                     setLoading(false);
                 });
         }
-    }, [user]);
+    }, [user, setLoading]);
 
 
     if (loading) return <Loading />;

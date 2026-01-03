@@ -17,6 +17,13 @@ const Navbar = () => {
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
         <li><NavLink to="/upcomingEvent">Upcoming Event</NavLink></li>
+        {
+            user &&
+            <>
+                <li><NavLink to='/manageEvent'>Manage Event</NavLink></li>
+                <li><NavLink to='/createEvent'>Create Event</NavLink></li>
+            </>
+        }
     </>
 
     const handleLogOut = () => {
@@ -54,7 +61,7 @@ const Navbar = () => {
     }, [dropdownOpen]);
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 shadow-sm fixed top-0 left-0 right-0 z-50 container mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

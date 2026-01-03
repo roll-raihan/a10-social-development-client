@@ -2,11 +2,11 @@ import React from 'react';
 import Navbar from '../component/Navbar/Navbar';
 import Footer from '../component/Footer/Footer';
 import { Outlet } from 'react-router';
-
+//  pt-16
 const Root = () => {
     return (
         <div className='container mx-auto'>
-            <header>
+            <header className='pt-16'>
                 <Navbar></Navbar>
             </header>
             <main>
