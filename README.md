@@ -51,6 +51,18 @@ GreenRoots is a community-driven platform that connects environmentally consciou
 
 ---
 
+## 🚀 How to Run Locally
+
+Follow the steps below to run GreenRoots on your local machine:
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/roll-raihan/a10-social-development-client.git
+cd your-project
+npm install
+cp .env.example .env
+npm start
+```
 
 ## 🌍 Our Impact
 
@@ -60,7 +72,16 @@ GreenRoots is a community-driven platform that connects environmentally consciou
 - **20+** Districts Covered
 
 ---
+## 🤝 Contributing
 
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+## 👨‍💻 Author
+
+**Your Name**
+- GitHub: [roll-raihan](https://github.com/yourusername)
+- LinkedIn: [My LinkedIn](https://www.linkedin.com/in/raihan-ahmed-nasim/)
+----
 
 ## 📄 License
 
