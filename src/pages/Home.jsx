@@ -1,4 +1,5 @@
 import Banner from '../component/Banner/Banner';
+import Blog from '../component/blogs/Blog';
 import Categories from '../component/categories/Categories';
 import Features from '../component/features/Features';
 import Gallery from '../component/Gallery/Gallery';
@@ -14,6 +15,7 @@ const Home = () => {
             <Services></Services>
             <Categories></Categories>
             <Gallery galleryPromise={galleryPromise}></Gallery>
+            <Blog></Blog>
             <NewsletterSection></NewsletterSection>
         </div>
     );
