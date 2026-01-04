@@ -20,7 +20,7 @@ const UpcomingEvents = () => {
             const response = await axios.get(url);
             setEvents(response.data);
         } catch (err) {
-            // console.error("Error fetching events:", err);
+            console.error("Error fetching events:", err);
             setError('Failed to load upcoming events. Please try again.');
         } finally {
             setLoading(false);
@@ -57,13 +57,14 @@ const UpcomingEvents = () => {
                     <option value="Plantation">Plantation</option>
                     <option value="Donation">Donation</option>
                     <option value="Awareness">Awareness</option>
+                    <option value="Awareness">Charity</option>
                 </select>
             </div>
 
             {events.length === 0 ? (
                 <p className="empty-state text-center text-lg font-medium">No upcoming events found.</p>
             ) : (
-                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
                     {events.map(event => (
                         <EventCard key={event._id} event={event} />
                     ))}

@@ -8,7 +8,7 @@ const JoinedEvents = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://social-development-server-pi.vercel.app/join-event?email=${user.email}`)
+            fetch(`https://social-development-server-pi.vercel.app/join-event?email=${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     // console.log(data)
@@ -17,7 +17,7 @@ const JoinedEvents = () => {
                     setLoading(false);
                 });
         }
-    }, [user]);
+    }, [user, setLoading]);
 
     if (loading) return <Loading />;
 
@@ -25,7 +25,7 @@ const JoinedEvents = () => {
         <div className="px-4 py-8 bg-secondary opacity-[80%]">
             <h2 className="text-3xl font-bold mb-6 text-black">My Joined Events</h2>
             {myEvents.length === 0 ? (
-                <p className='text-secondary'>You haven't joined any events yet.</p>
+                <p className='text-black'>You haven't joined any events yet.</p>
             ) : (
                 <div className="overflow-x-auto">
                     <table className="table w-full text-black">
