@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router';
 import '../Navbar/navbar.css'
 import ToggleTheme from '../toggleTheme/ToggleTheme';
 import { AuthContext } from '../../provider/AuthProvider';
-import { FaUserCircle, FaCalendarPlus, FaTasks, FaCalendarCheck, FaSignOutAlt } from 'react-icons/fa';
+import { FaUserCircle, FaCalendarPlus, FaTasks, FaCalendarCheck, FaSignOutAlt, FaDashcube } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const Navbar = () => {
@@ -130,6 +130,15 @@ const Navbar = () => {
                                     >
                                         <FaCalendarCheck className="text-primary" />
                                         <span className="text-sm font-medium">Joined Events</span>
+                                    </Link>
+                                    
+                                    <Link
+                                        to="/dashboard"
+                                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-base-200 transition-colors"
+                                        onClick={() => setDropdownOpen(false)}
+                                    >
+                                        <FaDashcube className="text-primary" />
+                                        <span className="text-sm font-medium">Dashboard</span>
                                     </Link>
 
                                     <div className="border-t border-base-300 mt-2 pt-2">

@@ -38,7 +38,6 @@ const ManageEvents = () => {
                                 <th>Type</th>
                                 <th>Date</th>
                                 <th>Location</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,12 +49,8 @@ const ManageEvents = () => {
                                     <td>{event.event_date}</td>
                                     <td>
                                         {typeof event.location === 'object'
-                                            ? `${event.location.name || ''}, ${event.location.city || ''}, ${event.location.address || ''}`
+                                            ? `${event.location || ''}, ${event.location.address || ''}`
                                             : event.location}
-                                    </td>
-
-                                    <td>
-                                        <Link to={`/manageEvent/${event._id}`} className="btn btn-sm btn-primary mr-2">Edit</Link>
                                     </td>
                                 </tr>
                             ))}

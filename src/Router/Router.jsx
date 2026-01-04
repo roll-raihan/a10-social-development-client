@@ -12,6 +12,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../pages/Loading";
 import UpdateEvent from "../pages/UpdateEvent";
 import ErrorPage from "../pages/ErrorPage";
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <JoinedEvents></JoinedEvents>
                 </PrivateRoute>
+            },
+            {
+                path:"/dashboard",
+                element: <Dashboard></Dashboard>
             },
             {
                 path: "/*",
