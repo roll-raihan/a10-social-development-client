@@ -1,6 +1,7 @@
 import Banner from '../component/Banner/Banner';
 import Blog from '../component/blogs/Blog';
 import Categories from '../component/categories/Categories';
+import CTA from '../component/CTA/CTA';
 import FAQ from '../component/FAQ/FAQ';
 import Features from '../component/features/Features';
 import Gallery from '../component/Gallery/Gallery';
@@ -21,6 +22,7 @@ const Home = () => {
             <Testimonial></Testimonial>
             <NewsletterSection></NewsletterSection>
             <FAQ></FAQ>
+            <CTA></CTA>
         </div>
     );
 };
