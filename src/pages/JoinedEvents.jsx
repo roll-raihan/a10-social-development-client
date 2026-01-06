@@ -48,10 +48,10 @@ const JoinedEvents = () => {
                                             className="w-16 h-16 rounded"
                                         />
                                     </td>
-                                    <td>{event.eventTitle}</td>
-                                    <td>{event.eventType}</td>
-                                    <td>{event.eventDate}</td>
-                                    <td>{event.location}</td>
+                                    <td>{event?.eventTitle}</td>
+                                    <td>{event?.eventType}</td>
+                                    <td>{event?.eventDate}</td>
+                                    <td>{event?.eventLocation}</td>
                                 </tr>
                             ))}
                         </tbody>
