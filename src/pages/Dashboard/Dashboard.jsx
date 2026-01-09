@@ -51,7 +51,7 @@ const Dashboard = () => {
                         </li>
 
                         <li>
-                            <Link to='/joinEvent' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Joined Event">
+                            <Link to='/joinedEvent' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Joined Event">
                                 <FaCalendarCheck></FaCalendarCheck>
                                 <span className="is-drawer-close:hidden">Join Event</span>
                             </Link>

@@ -31,27 +31,27 @@ const JoinedEvents = () => {
                     <table className="table w-full text-black">
                         <thead className='text-black'>
                             <tr>
-                                <th>Thumbnail</th>
+                                {/* <th>Thumbnail</th> */}
                                 <th>Title</th>
-                                <th>Type</th>
+                                {/* <th>Type</th> */}
                                 <th>Date</th>
-                                <th>Location</th>
+                                {/* <th>Location</th> */}
                             </tr>
                         </thead>
                         <tbody>
                             {myEvents.map(event => (
                                 <tr key={event._id}>
-                                    <td>
+                                    {/* <td>
                                         <img
                                             src={event.thumbnail}
                                             alt={event.eventTitle}
                                             className="w-16 h-16 rounded"
                                         />
-                                    </td>
+                                    </td> */}
                                     <td>{event?.eventTitle}</td>
-                                    <td>{event?.eventType}</td>
+                                    {/* <td>{event?.eventType}</td> */}
                                     <td>{event?.eventDate}</td>
-                                    <td>{event?.eventLocation}</td>
+                                    {/* <td>{event?.eventLocation}</td> */}
                                 </tr>
                             ))}
                         </tbody>
