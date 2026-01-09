@@ -55,6 +55,7 @@ const UpcomingEventDetails = () => {
         <div className="p-8">
             <img src={event.thumbnail} alt={event.event_title} className="w-full h-80 object-cover rounded-lg" />
             <h1 className="text-3xl font-bold mt-4">{event.event_title}</h1>
+            <h4 className='font-semibold mt-3'>Creator: {event.creator_email}</h4>
             <p className="mt-2">{event.description}</p>
             <p>📍 Location: {event.location?.name}</p>
             <p>🗓 Date: {event.event_date}</p>

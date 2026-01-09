@@ -36,6 +36,7 @@ const JoinedEvents = () => {
                                 {/* <th>Type</th> */}
                                 <th>Date</th>
                                 {/* <th>Location</th> */}
+                                <th>Joining Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,6 +53,7 @@ const JoinedEvents = () => {
                                     {/* <td>{event?.eventType}</td> */}
                                     <td>{event?.eventDate}</td>
                                     {/* <td>{event?.eventLocation}</td> */}
+                                    <td>{event?.joinedAt}</td>
                                 </tr>
                             ))}
                         </tbody>
